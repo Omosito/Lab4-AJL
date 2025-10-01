@@ -5,7 +5,7 @@ public class methods {
     public int numZeroPairsSums(int[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length - 1; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] + arr[j] == 0) {
                     count++;
                 }
@@ -20,10 +20,9 @@ public class methods {
 
         for (int i = 0; i < arr.length; i++) {
             int index = binarySearch(arr, -arr[i]);
-            System.out.println(index);
             if (index > i) {
                 count++;
-                continue;
+
             }
         }
         return count;
@@ -31,23 +30,45 @@ public class methods {
 
     public int numZeroTripletSums(int[] arr) {
         int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                for (int k = j + 1; k < arr.length; k++) {
+
+                    if (arr[i] + arr[j] + arr[k] == 0) {
+                        count++;
+                    }
+                }
+            }
+        }
 
         return count;
     }
 
     public int numZeroTripletSumsSpeedy(int[] arr) {
         int count = 0;
+        Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                int x = -arr[i] - arr[j];
+                int index = binarySearch(arr, x);
+                System.out.println(index);
+                if (index > j) {
+                    count++;
+                }
+            }
+        }
 
         return count;
     }
 
     public int binarySearch(int[] arr, int key) {
         int min = 0;
-        int max = arr.length;
+        int max = arr.length - 1;
         int mid = max / 2;
         boolean found = false;
 
-        while (mid > min) {
+        while (mid > min && mid < max) {
             if (arr[mid] == key) {
                 found = true;
                 break;

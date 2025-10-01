@@ -24,6 +24,28 @@ public class tests {
     }
 
     @Test
+    public void testNumZeroTripletSums() {
+        methods numZeroTripletSums = new methods();
+        int[] arr;
+        arr = new int[] { 10, -3, 18, -7, -12, 14, -6 };
+        int expected = 2;
+        int actual = numZeroTripletSums.numZeroTripletSums(arr);
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testNumZeroTripletSumsSpeedy() {
+        methods numZeroTripletSumsSpeedy = new methods();
+        int[] arr;
+        arr = new int[] { 40, 60, -100, -3, -3, 6, 400, 800, 1200 };
+        int expected = 3;
+        int actual = numZeroTripletSumsSpeedy.numZeroTripletSumsSpeedy(arr);
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
     public void testBinarySearch() {
         methods binarySearch = new methods();
         int[] arr;

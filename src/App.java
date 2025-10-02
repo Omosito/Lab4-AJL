@@ -72,7 +72,7 @@ public class App {
         methods numZeroPairSumsSpeedy = new methods();
         System.out.printf("%-7s %8s %8s%n", "n", "zNT()", "zNTS()");
         System.out.println("=========================");
-        for (int i = 1000; i <= 500; i += 5000) {
+        for (int i = 1000; i <= 5000; i += 500) {
             int[] arr = generateRandomArray(i);
             long startTime = System.currentTimeMillis();
             numZeroPairSums.numZeroPairsSums(arr);

@@ -6,45 +6,10 @@ int. In methods 1 and 3, just use basic for-loops to do the calculations; in met
 follow the specified algorithm. You will also write a fifth helper method to perform a binary
 search.
 
-1. numZeroPairSums(), aka nZP():
-This method returns the number of distinct pairs in an array that sum to 0. For instance, given
-the array {10, 3, 18, -10, -3, 4}, numZeroPairSums() would return 2, as there are two pairs (10,
--10) and (3, -3) that sum to 0. Do not double count: pairs (10, -10) and (-10, 10) are the same.
-Do not change the array in any way, nor store its values in any other collection. Just use for
-loops to process it.
-
-2. numZeroPairSumsSpeedy(), aka nZPS():
-This will behave the same as numZeroPairSums(), except, as its name suggests, more speedily.
-The algorithm for this method is as follows (where arr represents an int array):
-1. Set the number of zero pair sums to 0
-2. Sort arr (using Arrays.sort() -- we're in a hurry here!)
-3. For the ith element arr[i] (where i = 0, 1, ..., n-1):
-1. do a binary search of -arr[i] in arr, and note its index in the array
-2. if the index exceeds i, increase the number of zero pair sums // why does this work?
-
-3. numZeroTripletSums(), aka nZT():
-This method returns the number of triplets in an array that sum to 0. For instance, given the
-array {10, -3, 18, -7, -12, 14, -6}, numZeroTripletSums() would return 2, since (10, -3, -7), and
-(18, -12, -6) sum to 0. Do not double count: (10, -3, -7) and (-3, 10, -7) are the same triplet.
-
-4. numZeroTripletSumsSpeedy(), aka nZTS():
-This is the speedy analog of numZeroTripletSums(), and the algorithm for this method is as
-follows (where arr represents an int array)
-1. Set the number of zero triplet sums to 0
-2. Sort arr (using Arrays.sort())
-3. For the ith element arr[i] (where i = 0, 1, ..., n-1):
-1. for the jth element arr[j] (where j = i+1, ..., n-1)
-2. do a binary search of -arr[i]-arr[j] in arr, and note its index in the array
-3. if that index exceeds j, increase the number of zero triplet sums // why j? why not i?
-Hint: try it with the array {40, 60, -100, -3, -3, 6, 400, 800, -1200}
-
-5. binarySearch()
-This will take two arguments, an int array and an int key, will return the index of the key if
-found, -1 if not. You should be able to write this from scratch, otherwise consult your notes.
 
 
 Part I: Implementing the Algorithms
-1. In VSCode, create a new Java project, Lab2FML (replace FML with your rst, middle and
+1. In VSCode, create a new Java project, Lab2FML (replace FML with your first, middle and
 last initial), in VS Code, and a package, lab2. All of your classes should be in lab2, except
 App.java, which you can leave where it is, in the default package.
 2. Implement the 5 methods listed above. To maximize the educational bene ts of this lab, we
@@ -62,6 +27,8 @@ nZP(), nZPS(){50, 40, 30, 20, 10}0
 nZP(), nZPS(){10, 15, 20, 30, -20, 40, 50}1
 nZP(), nZPS(){10, 15, 20, -10, 30, -15}2
 nZP(), nZPS(){10, 51, -10, 40, 80,, 94, 17, -80, -40}3
+
+
 nZT(), nZTS(){10, 20, 30, 40, 50}0
 nZT(), nZTS(){41, 11, 69, 5, 308, 425, - 3, 500, -2}1
 nZT(), nZTS(){-10, -200, -5, 15, 300, -100, 44, 69}2

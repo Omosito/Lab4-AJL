@@ -1,3 +1,5 @@
+package lab4;
+
 import java.util.Arrays;
 
 public class methods {
@@ -68,17 +70,17 @@ public class methods {
         int mid = max / 2;
         boolean found = false;
 
-        while (mid > min && mid < max) {
+        while (min <= max) {
             if (arr[mid] == key) {
                 found = true;
                 break;
-            }
-            if (arr[mid] < key) {
-                min = mid;
+            } else if (arr[mid] < key) {
+                min = mid + 1;
                 mid = (max + min) / 2;
-            } else if (arr[mid] > key) {
-                max = mid;
-                mid = max / 2;
+
+            } else {
+                max = mid - 1;
+                mid = (max + min) / 2;
             }
         }
 

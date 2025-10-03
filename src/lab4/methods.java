@@ -1,9 +1,24 @@
+/*
+ * Author: Alex Leininger
+ * Date: 10/1/2025
+ * Description: Lab 4 - Class containing methods to count the number of pairs and triplets in an array that sum to zero with both a slower and faster implementation
+ * Bugs: None known
+ * Reflection: 
+ */
+
 package lab4;
 
 import java.util.Arrays;
 
 public class methods {
-
+    /*
+     * Method to count the number of pairs in an array that sum to zero using a
+     * nested for loop
+     * 
+     * @param arr the array to search
+     * 
+     * @return the number of pairs that sum to zero
+     */
     public int numZeroPairsSums(int[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -16,6 +31,14 @@ public class methods {
         return count;
     }
 
+    /*
+     * Method to count the number of pairs in an array that sum to zero using a
+     * faster method with sorting and binary search
+     * 
+     * @param arr the array to search
+     * 
+     * @return the number of pairs that sum to zero
+     */
     public int numZeroPairSumsSpeedy(int[] arr) {
         int count = 0;
         Arrays.sort(arr);
@@ -30,6 +53,14 @@ public class methods {
         return count;
     }
 
+    /*
+     * Method to count the number of triplets in an array that sum to zero using a
+     * nested for loops
+     * 
+     * @param arr the array to search
+     * 
+     * @return the number of triplets that sum to zero
+     */
     public int numZeroTripletSums(int[] arr) {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -46,6 +77,14 @@ public class methods {
         return count;
     }
 
+    /*
+     * Method to count the number of triplets in an array that sum to zero using a
+     * faster method with sorting and binary search
+     * 
+     * @param arr the array to search
+     * 
+     * @return the number of triplets that sum to zero
+     */
     public int numZeroTripletSumsSpeedy(int[] arr) {
         int count = 0;
         Arrays.sort(arr);
@@ -63,6 +102,15 @@ public class methods {
 
         return count;
     }
+    /*
+     * Method to perform a binary search on a sorted array
+     * 
+     * @param arr the array to search
+     * 
+     * @param key the value to search for
+     * 
+     * @return the index of the key in the array, or -1 if not found
+     */
 
     public int binarySearch(int[] arr, int key) {
         int min = 0;

@@ -1,3 +1,11 @@
+/*
+ * Author: Alex Leininger
+ * Date: 10/1/2025
+ * Description: Lab 4 - 16 specified unit tests to test the methods in the methods class
+ * Bugs: None known
+ * Reflection: 
+ */
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 

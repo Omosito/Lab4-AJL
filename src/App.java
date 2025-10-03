@@ -1,17 +1,33 @@
+/*
+ * Author: Alex Leininger
+ * Date: 10/1/2025
+ * Description: Lab 4 - Program to display tables illustrating the difference in time complexity for different algorithms
+ * Bugs: None known
+ * Reflection: This lab wasn't that bad, mostly just time consuming. The only thing I really had trouble with was generating an array of random numbers but I just looked up the documention for the Random util and was able to figure it out.
+ */
+
 import java.util.Scanner;
 import lab4.methods;
 import java.util.Random;
 
 public class App {
+    /*
+     * Calls method to print option menu to terminal
+     */
     public static void main(String[] args) throws Exception {
         App app = new App();
+
         app.menu();
     }
 
+    /*
+     * Method to print a menu and take user input for what table to display then
+     * calls the corresponding method to print that table
+     */
     public void menu() {
         Scanner scr = new Scanner(System.in);
         System.out.println("Choose table (1-4, 0 to quit):");
-        int choice = scr.nextInt();
+        int choice = scr.nextInt(); // get user input
         while (choice != 0) {
             switch (choice) {
                 case 1:
@@ -35,28 +51,39 @@ public class App {
         scr.close();
     }
 
+    /*
+     * Method to generate an array of random integers of a given size
+     * 
+     * @param size the size of the array to generate
+     * 
+     * @return an array of random integers of the given size
+     */
     public int[] generateRandomArray(int size) {
         int[] arr = new int[size];
         Random random = new Random();
-        random.setSeed(6741);
+        random.setSeed(System.nanoTime());
         for (int i = 0; i < size; i++) {
             arr[i] = random.nextInt();
         }
         return arr;
     }
 
+    /*
+     * Methods to print tables for zero pair sums and zero triplet sums
+     */
     public void zeroPairTable1() {
         methods numZeroPairSums = new methods();
         methods numZeroPairSumsSpeedy = new methods();
-        System.out.printf("%-7s %8s %8s%n", "n", "zNT()", "zNTS()");
-        System.out.println("=========================");
+        System.out.printf("%-7s %8s %8s%n", "n", "nZP()", "nZPS()");
+        System.out.println("========================="); // prints table header
         for (int i = 1000; i <= 50000; i += 1000) {
-            int[] arr = generateRandomArray(i);
-            long startTime = System.currentTimeMillis();
-            numZeroPairSums.numZeroPairsSums(arr);
-            long endTime = System.currentTimeMillis();
-            long duration1 = endTime - startTime;
+            int[] arr = generateRandomArray(i); // gets random array of size i
+            long startTime = System.currentTimeMillis(); // start time
+            numZeroPairSums.numZeroPairsSums(arr); // calls the method to be timed
+            long endTime = System.currentTimeMillis(); // end time
+            long duration1 = endTime - startTime; // calculates duration
 
+            // same thing for the speedy method
             startTime = System.currentTimeMillis();
             numZeroPairSumsSpeedy.numZeroPairSumsSpeedy(arr);
             endTime = System.currentTimeMillis();
@@ -70,7 +97,7 @@ public class App {
     public void zeroPairTable2() {
         methods numZeroPairSums = new methods();
         methods numZeroPairSumsSpeedy = new methods();
-        System.out.printf("%-7s %8s %8s%n", "n", "zNT()", "zNTS()");
+        System.out.printf("%-7s %8s %8s%n", "n", "nZP()", "nZPS()");
         System.out.println("=========================");
         for (int i = 1000; i <= 5000; i += 500) {
             int[] arr = generateRandomArray(i);
@@ -92,7 +119,7 @@ public class App {
     public void zeroTripletTable1() {
         methods numZeroTripletSums = new methods();
         methods numZeroTripletSumsSpeedy = new methods();
-        System.out.printf("%-7s %8s %8s%n", "n", "zNT()", "zNTS()");
+        System.out.printf("%-7s %8s %8s%n", "n", "nZT()", "nZTS()");
         System.out.println("=========================");
         for (int i = 1000; i <= 50000; i += 1000) {
             int[] arr = generateRandomArray(i);
@@ -122,7 +149,7 @@ public class App {
     public void zeroTripletTable2() {
         methods numZeroTripletSums = new methods();
         methods numZeroTripletSumsSpeedy = new methods();
-        System.out.printf("%-7s %8s %8s%n", "n", "zNT()", "zNTS()");
+        System.out.printf("%-7s %8s %8s%n", "n", "nZT()", "nZTS()");
         System.out.println("=========================");
         for (int i = 1000; i <= 5000; i += 500) {
             int[] arr = generateRandomArray(i);
